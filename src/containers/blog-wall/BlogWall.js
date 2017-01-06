@@ -1,5 +1,6 @@
 import React from 'react'
 import wpcom from 'wpcom'
+import Waypoint from 'react-waypoint'
 
 import Entry from './Entry'
 
@@ -19,7 +20,8 @@ class BlogWall extends React.Component {
   /**
    * @constructor
    *
-   * The constructor initializes the local state.
+   * The constructor initializes the local state and binds the local methods to
+   * the class.
    *
    * @prop { object } props - These are the properties that are passed to this
    *                          class.
@@ -29,26 +31,24 @@ class BlogWall extends React.Component {
     super(props)
     this.state = {
       index: 5,
+      current: 0,
       length: null,
       entries: [],
       loading: false
     }
+
+    this._fetchMorePosts = this._fetchMorePosts.bind(this)
+    this._enterWaypoint = this._enterWaypoint.bind(this)
   }
 
-  /**
-   * @method componentDidMount
-   *
-   * When the component is mounted, this method fetches the content for this page.
-   *
-   */
-  componentDidMount () {
-    const { index } = this.state
+  _fetchMorePosts (number, offset) {
     var wp = wpcom()
     var blog = wp.site('www.fjakkarin.com')
     this.setState({ loading: true })
-    blog.postsList( { number: index } )
+    blog.postsList( { number: number } )
       .then( (object) => {
-        object.posts.map((post, index) => {
+        let { posts } = object
+        posts.slice(offset).map((post, index) => {
           // Build display object
           let dPost = {
             title: post.title,
@@ -72,11 +72,22 @@ class BlogWall extends React.Component {
             }
           }
           this.state.entries.push(dPost)
-          this.setState({ length: object.found, entries: this.state.entries, loading: false })
+          this.setState({ length: object.found, current: number, entries: this.state.entries, loading: false })
         })
       })
       .catch( (error) => { console.log(error) } )
+  }
 
+  /**
+   * @method _enterWaypoint
+   *
+   * This method is called, when the user scolls to the bottom of the page.
+   */
+  _enterWaypoint () {
+    const { index, current, length } = this.state
+    if (!length || current < length) {
+      this._fetchMorePosts(current + index, current)
+    }
   }
 
   /**
@@ -86,15 +97,12 @@ class BlogWall extends React.Component {
    *
    */
   render () {
-    const { loading } = this.state
+    const { loading, entries } = this.state
     return (
       <main className='fjakkarin-content-feed'>
-        {loading
-        ? (<p></p>)
-        : <section id='timeline' className='timeline-container'>
-           {this.state.entries.length === 0
-            ? (<div />)
-            : this.state.entries.map((entry, index) => {
+        {entries.length !== 0 &&
+          <section id='timeline' className='timeline-container'>
+            {entries.map((entry, index) => {
               return (
                 <Entry key={index}
                   title={entry.title}
@@ -105,9 +113,18 @@ class BlogWall extends React.Component {
                   content={entry.content}
                 />
               )
-            })
-          }
-        </section>
+            })}
+            {loading &&
+              <div style={{ position: 'relative' }}>
+                <div style={{ position: 'absolute', height: '60px', background: 'white' }}>Bíða</div>
+              </div>
+            }
+          </section>
+        }
+        {!loading &&
+          <Waypoint
+            onEnter={this._enterWaypoint}
+            />
         }
       </main>
     )

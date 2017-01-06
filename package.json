@@ -17,6 +17,7 @@
     "koa": "2",
     "koa-static": "^2.0.0",
     "koa-webpack-middleware": "^1.0.3",
+    "react-waypoint": "^5.0.0",
     "webpack": "^1.14.0"
   },
   "dependencies": {
