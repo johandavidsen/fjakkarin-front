@@ -41,6 +41,21 @@ class BlogWall extends React.Component {
     this._enterWaypoint = this._enterWaypoint.bind(this)
   }
 
+  /**
+   * @method componentDidMount
+   *
+   *
+   */
+  componentDidMount () {
+    this._fetchMorePosts(10)
+  }
+
+  /**
+   * @method _fetchMorePosts
+   *
+   *
+   *
+   */
   _fetchMorePosts (number, offset) {
     var wp = wpcom()
     var blog = wp.site('www.fjakkarin.com')

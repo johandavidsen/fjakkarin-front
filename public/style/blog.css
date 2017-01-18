@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
-
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 /* Coolors Exported Palette - coolors.co/f6511d-ffb400-00a6ed-7fb800-0d2c54 */
 
 /* HSL */
@@ -21,7 +21,10 @@ body {
   height: 100vh;
   overflow: hidden;
   background-size: 100vw;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 .fjakkarin-content {
@@ -30,6 +33,30 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+
+/* Welcome text */
+.text {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  text-align: justify;
+}
+
+.text a {
+  padding-top: 8px;
+  border-bottom: 2px solid white;
+  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.text a:hover {
+  opacity: 1;
+  border-bottom: 2px solid black;
+}
+
+/* Welcome text */
 
 .timeline-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
