@@ -58,19 +58,19 @@ body {
 
 @media only screen and (min-width: 320px) {
   .text {
-    width: 320px;
+    width: 310px;
   }
 }
 
 @media only screen and (min-width: 400px) {
   .text {
-    width: 400px;
+    width: 390px;
   }
 }
 
 @media only screen and (min-width: 600px) {
   .text {
-    width: 600px;
+    width: 590px;
   }
 }
 /* Welcome text */
@@ -630,4 +630,24 @@ footer {
 .footer-container-link:hover {
   opacity: 1;
   border-bottom: 2px solid black;
+}
+
+@media only screen and (min-width: 320px) {
+  .footer-container-link {
+    color: #ffffff;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .footer-container-link:hover {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .footer-container-link {
+    color: #000000;
+  }
 }
