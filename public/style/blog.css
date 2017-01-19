@@ -649,5 +649,13 @@ footer {
 @media only screen and (min-width: 600px) {
   .footer-container-link {
     color: #000000;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .footer-container-link:hover {
+    opacity: 1;
+    pointer-events: auto;
+    cursor:pointer;
   }
 }
