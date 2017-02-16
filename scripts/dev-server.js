@@ -51,5 +51,5 @@ app.use(hotMiddleware(compile, {
 }))
 
 // Serve the public folder
-app.use(serve(path.join(__dirname, '../public')))
+app.use(serve(path.join(__dirname, '../build')))
 app.listen(2333)

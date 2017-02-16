@@ -6,7 +6,4 @@ if (module.hot) {
   module.hot.accept()
 }
 
-// The Application
-import BlogWall from './containers/blog-wall'
-// Mount the Application
-ReactDOM.render(<BlogWall />, document.getElementById('timeline-outer'))
+// ReactDOM.render(<Activity />, document.getElementById('timeline-outer'))

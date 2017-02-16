@@ -2,9 +2,12 @@
   "name": "fjakkarin-app",
   "version": "0.1.0",
   "description": "This is the web application for blog.fjakkarin.com",
-  "main": "public/index.html",
+  "main": "public",
   "author": "Jóhan Davidsen",
   "license": "MIT",
+  "scripts": {
+    "develop": "node scripts/dev-server.js"
+  },
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -21,6 +24,7 @@
     "webpack": "^1.14.0"
   },
   "dependencies": {
+    "grot": "file:./../grot",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "wpcom": "^5.3.0"
