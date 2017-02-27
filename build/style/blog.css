@@ -590,8 +590,14 @@ footer {
   padding-bottom: 20px;
 }
 
+#footer-container-top {
+  width: 100vw;
+  position: fixed;
+  bottom: 60px;
+  color:  #DCDCDC;
+}
+
 .footer-container {
-  border-top: 1px solid #DCDCDC;
   display: inline-flex;
   justify-content: flex-end;
 }
@@ -658,4 +664,13 @@ footer {
     pointer-events: auto;
     cursor:pointer;
   }
+}
+
+/** */
+.fjakkarin-axis {
+  display: none;
+}
+
+.line {
+  stroke: #DCDCDC;
 }
