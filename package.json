@@ -6,7 +6,8 @@
   "author": "Jóhan Davidsen",
   "license": "MIT",
   "scripts": {
-    "develop": "node scripts/dev-server.js"
+    "develop": "node scripts/dev-server.js",
+    "prepublish": "webpack --config scripts/webpack.config.prod.js" 
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
