@@ -107,12 +107,12 @@ class ContributionsChart extends React.Component {
       if (values.type === 'resize') {
         this.setState({
           width: width,
-          xScale: d3.scaleTime().domain([moment(data.values[0].x), new Date()]).range([0, width])
+          xScale: d3.scaleTime().domain([moment(data.values[0].x), new Date()]).range([0, width + 8])
         })
       } else {
         this.setState({
           width: width,
-          xScale: d3.scaleTime().domain([moment(values[0].x), new Date()]).range([0, width])
+          xScale: d3.scaleTime().domain([moment(values[0].x), new Date()]).range([0, width + 8])
         })
       }
     }
@@ -127,6 +127,7 @@ class ContributionsChart extends React.Component {
    */
   render () {
     let { data, width, xScale } = this.state
+
     return (
       <div id='contributions' ref='contributions'>
         <LineChart
