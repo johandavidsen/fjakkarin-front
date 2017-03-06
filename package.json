@@ -2,7 +2,7 @@
   "name": "fjakkarin-app",
   "version": "0.1.0",
   "description": "This is the web application for blog.fjakkarin.com",
-  "main": "public",
+  "main": "build",
   "author": "Jóhan Davidsen",
   "license": "MIT",
   "scripts": {
