@@ -1,18 +1,23 @@
 const path = require('path')
 const koa = require('koa')
+
 /** Development server middleware */
 const devMiddleware = require('koa-webpack-middleware').devMiddleware
 const hotMiddleware = require('koa-webpack-middleware').hotMiddleware
+
 /** This is required do to a bug in koa-webpack-middleware */
 const babelPolyfill = require('babel-polyfill')
+
 /** Serve static files on koa*/
 const serve = require('koa-static')
 
 const webpack = require('webpack')
 const config = require('./webpack.config.dev')
+
 /** The server functions */
 var app = new koa()
 const compile = webpack(config)
+
 // Configure webpack
 app.use(devMiddleware(compile, {
   // display no info to console (only warnings and errors)
