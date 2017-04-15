@@ -7,7 +7,7 @@ module.exports = {
     app: './src/index'
   },
   output: {
-    path: path.join(__dirname, '../build/scripts'),
+    path: path.join(__dirname, '../dist/scripts'),
     filename: '[name].js',
     publicPath: '/scripts',
   },
@@ -16,7 +16,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0'],
           'env': {

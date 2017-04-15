@@ -10,7 +10,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, '../public/scripts'),
+    path: path.join(__dirname, '../dist/scripts'),
     filename: '[name].js',
     publicPath: '/scripts/'
   },
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0'],
           'env': {
@@ -33,9 +33,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   node: {
     fs: 'empty'
