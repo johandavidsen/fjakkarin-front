@@ -16,7 +16,7 @@ $color3: rgba(0, 166, 237, 1);
 $color4: rgba(127, 184, 0, 1);
 $color5: rgba(13, 44, 84, 1);*/
 
-body {
+.fjakkarin {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -76,7 +76,11 @@ body {
 /* Welcome text */
 
 /* Footer */
-footer {
+
+.fjakkarin-footer {
+  display: inline-flex;
+  justify-content: flex-end;
+  border-top: 1px solid #DCDCDC;
   background-color: #ffffff;
   position: fixed;
   bottom: 0px;
@@ -84,20 +88,7 @@ footer {
   padding-bottom: 20px;
 }
 
-#footer-container-top {
-  width: 100vw;
-  position: fixed;
-  bottom: 60px;
-  color:  #DCDCDC;
-}
-
-.footer-container {
-  display: inline-flex;
-  justify-content: flex-end;
-  border-top: 1px solid #DCDCDC;
-}
-
-.footer-container-title {
+.fjakkarin-footer-title {
   position: fixed;
   left: 0px;
   border-bottom: 2px solid white;
@@ -110,11 +101,11 @@ footer {
   font-family: 'Pacifico', cursive;
 }
 
-.footer-container-title:hover {
+.fjakkarin-footer-title:hover {
   opacity: 1;
 }
 
-.footer-container-link {
+.fjakkarin-footer-link {
   padding-top: 8px;
   border-bottom: 2px solid white;
   margin: 5px;
@@ -124,23 +115,23 @@ footer {
   color: black;
 }
 
-.footer-container-link:last-child {
+.fjakkarin-footer-link:last-child {
   margin-right: 15px;
 }
 
-.footer-container-link:hover {
+.fjakkarin-footer-link:hover {
   opacity: 1;
   border-bottom: 2px solid black;
 }
 
 @media only screen and (min-width: 320px) {
-  .footer-container-link {
+  .fjakkarin-footer-link {
     color: #ffffff;
     pointer-events: none;
     cursor: default;
   }
 
-  .footer-container-link:hover {
+  .fjakkarin-footer-link:hover {
     opacity: 0;
     pointer-events: none;
     cursor: default;
@@ -148,13 +139,13 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-  .footer-container-link {
+  .fjakkarin-footer-link {
     color: #000000;
     pointer-events: auto;
     cursor: pointer;
   }
 
-  .footer-container-link:hover {
+  .fjakkarin-footer-link:hover {
     opacity: 1;
     pointer-events: auto;
     cursor:pointer;
