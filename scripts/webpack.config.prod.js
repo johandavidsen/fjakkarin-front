@@ -7,7 +7,11 @@ module.exports = {
     app: './src/index'
   },
   output: {
+<<<<<<< HEAD
     path: path.join(__dirname, '../dist/scripts'),
+=======
+    path: path.join(__dirname, '../publicpublic/scripts'),
+>>>>>>> master
     filename: '[name].js',
     publicPath: '/scripts',
   },
