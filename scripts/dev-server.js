@@ -56,9 +56,5 @@ app.use(hotMiddleware(compile, {
 }))
 
 // Serve the public folder
-<<<<<<< HEAD
-app.use(serve(path.join(__dirname, '../dist')))
-=======
 app.use(serve(path.join(__dirname, '../public')))
->>>>>>> master
 app.listen(2333)
