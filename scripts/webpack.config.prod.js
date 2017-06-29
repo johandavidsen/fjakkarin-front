@@ -1,8 +1,15 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+
+const extractSass = new ExtractTextPlugin({
+  filename: "../style/[name].css",
+  disable: false,
+  allChunks: true
+})
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   entry: {
     app: './src/index'
   },
@@ -12,7 +19,7 @@ module.exports = {
     publicPath: '/scripts',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -25,6 +32,13 @@ module.exports = {
             }
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader', 'sass-loader']
+        }),
       }
     ]
   },
@@ -35,6 +49,7 @@ module.exports = {
       }
     }),
     new webpack.optimize.UglifyJsPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    extractSass
   ]
 }

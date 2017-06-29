@@ -1,0 +1,155 @@
+@import "~purecss/build/pure-min.css";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+/* Coolors Exported Palette - coolors.co/f6511d-ffb400-00a6ed-7fb800-0d2c54 */
+
+/* HSL */
+/*$color1: hsla(14%, 92%, 54%, 1);
+$color2: hsla(42%, 100%, 50%, 1);
+$color3: hsla(198%, 100%, 46%, 1);
+$color4: hsla(79%, 100%, 36%, 1);
+$color5: hsla(214%, 73%, 19%, 1);*/
+
+/* RGB */
+/*$color1: rgba(246, 81, 29, 1);
+$color2: rgba(255, 180, 0, 1);
+$color3: rgba(0, 166, 237, 1);
+$color4: rgba(127, 184, 0, 1);
+$color5: rgba(13, 44, 84, 1);*/
+
+.fjakkarin {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-size: 100vw;
+  background-color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.fjakkarin-content {
+  height: 100%;
+  overflow: scroll;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Welcome text */
+.text {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  text-align: justify;
+}
+
+.text a {
+  padding-top: 8px;
+  border-bottom: 2px solid white;
+  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.text a:hover {
+  opacity: 1;
+  border-bottom: 2px solid black;
+}
+
+@media only screen and (min-width: 320px) {
+  .text {
+    width: 310px;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .text {
+    width: 390px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .text {
+    width: 590px;
+  }
+}
+/* Welcome text */
+
+/* Footer */
+
+.fjakkarin-footer {
+  display: inline-flex;
+  justify-content: flex-end;
+  border-top: 1px solid #DCDCDC;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.fjakkarin-footer-title {
+  position: fixed;
+  left: 0px;
+  border-bottom: 2px solid white;
+  margin: 5px 5px 5px 10px;
+  opacity: 1;
+  cursor: pointer;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Pacifico', cursive;
+}
+
+.fjakkarin-footer-title:hover {
+  opacity: 1;
+}
+
+.fjakkarin-footer-link {
+  padding-top: 8px;
+  border-bottom: 2px solid white;
+  margin: 5px;
+  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.fjakkarin-footer-link:last-child {
+  margin-right: 15px;
+}
+
+.fjakkarin-footer-link:hover {
+  opacity: 1;
+  border-bottom: 2px solid black;
+}
+
+@media only screen and (min-width: 320px) {
+  .fjakkarin-footer-link {
+    color: #ffffff;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .fjakkarin-footer-link:hover {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .fjakkarin-footer-link {
+    color: #000000;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .fjakkarin-footer-link:hover {
+    opacity: 1;
+    pointer-events: auto;
+    cursor:pointer;
+  }
+}
+/* Footer */
