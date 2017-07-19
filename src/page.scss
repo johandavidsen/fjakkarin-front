@@ -43,6 +43,10 @@ $color5: rgba(13, 44, 84, 1);*/
       width: 600px;
       text-align: justify;
 
+      transition: width .5s ease-in-out;
+      -moz-transition: width .5s ease-in-out;
+      -webkit-transition: width .5s ease-in-out;
+
       a {
         padding-top: 8px;
         border-bottom: 2px solid white;
