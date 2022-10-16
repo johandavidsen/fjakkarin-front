@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Pacifico";
+    src: url("../fonts/Pacifico.woff") format("woff"),
+         url("../fonts/Pacifico-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+}
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.font-pacifico {
+    font-family: Pacifico,cursive;
+}
