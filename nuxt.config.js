@@ -16,6 +16,11 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ]
     },
+    wp: {
+        sitemap: {
+            hostname: "http://headless.dev.anu.gl.test"
+        }
+    },
     modules: [
         [ 'wp-nuxt', {
             endpoint: 'http://headless.dev.anu.gl.test/wp-json'
