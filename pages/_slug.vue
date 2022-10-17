@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Header :pages="pages"></Header>
+    <Header :title="title" :pages="pages"></Header>
+
     <section class="max-w-7xl mx-auto px-4 py-12">
       <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose mx-auto">
         <div class="mx-auto max-w-prose text-lg">
@@ -29,6 +30,7 @@ export default {
   async asyncData ({ app, store, params }) {
     let slug = params.slug
     return {
+      title: app.head.title,
       pages: await app.$wp.pages(),
       page: await app.$wp.pages().slug(slug)
     }

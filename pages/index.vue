@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :pages="pages"></Header>
+    <Header :title="title" :pages="pages"></Header>
 
     <section class="container max-w-7xl px-4 py-12 mx-auto">
       <div class="grid gap-4 mx-4 sm:grid-cols-12">
@@ -165,6 +165,7 @@ import PostTeaser from "@/components/PostTeaser";
 
 export default {
   name: "Index",
+
   components: {
     PostTeaser,
     Header
@@ -172,6 +173,7 @@ export default {
 
   async asyncData ({ app, store, params }) {
     return {
+      title: app.head.title,
       posts: await app.$wp.posts().perPage(5).order( 'asc' ),
       pages: await app.$wp.pages()
     }

@@ -4,9 +4,9 @@
       <nav class="relative mx-auto flex items-center justify-between px-6 pt-6 xl:px-8" aria-label="Global">
         <div class="flex flex-1 items-center mb-4">
           <div class="flex w-full items-center justify-between lg:w-auto">
-            <a href="/" class="font-pacifico text-2xl">
-              Fjakkarin
-            </a>
+            <NuxtLink to="/" class="font-pacifico text-2xl">
+              {{ title }}
+            </NuxtLink>
             <div class="-mr-2 flex items-center lg:hidden">
               <button type="button" @click="toggle" class="focus-ring-inset inline-flex items-center justify-center rounded-md bg-warm-gray-50 p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-black" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -28,7 +28,7 @@
       </nav>
     </div>
 
-    <Menu :pages="pages" :open="open" @toggle="toggle"/>
+    <Menu :title="title" :pages="pages" :open="open" @toggle="toggle"/>
   </header>
 </template>
 
@@ -42,6 +42,7 @@ export default {
   },
 
   props: [
+      'title',
       'pages'
   ],
 

@@ -11,9 +11,9 @@
       <div class="overflow-hidden bg-white shadow-lg ring-1 ring-black ring-opacity-5">
         <div class="flex items-center justify-between px-5 pt-4">
           <div>
-            <a href="/" class="font-pacifico text-2xl">
-              Fjakkarin
-            </a>
+            <NuxtLink to="/" class="font-pacifico text-2xl">
+              {{ title }}
+            </NuxtLink>
           </div>
           <div class="-mr-2">
             <button type="button" @click="close" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
@@ -40,6 +40,7 @@
 export default {
 
   props: [
+      'title',
       'open',
       'pages'
   ],
