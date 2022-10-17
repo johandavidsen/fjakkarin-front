@@ -5,8 +5,9 @@
       <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose mx-auto">
         <div class="mx-auto max-w-prose text-lg">
           <h1>
-            <span class="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-            {{ post[0].title.rendered}}
+            <span class="mt-2 block text-center text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl"
+              v-html="post[0].title.rendered"
+            >
             </span>
           </h1>
         </div>
