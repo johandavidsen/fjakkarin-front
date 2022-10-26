@@ -1,11 +1,11 @@
 <template>
   <header class="relative">
-    <div class="bg-warm-gray-50">
+    <div>
       <nav class="relative mx-auto flex items-center justify-between px-6 pt-6 xl:px-8" aria-label="Global">
         <div class="flex flex-1 items-center mb-4">
           <div class="flex w-full items-center justify-between lg:w-auto">
             <NuxtLink to="/" class="font-pacifico text-2xl">
-              {{ title }}
+              {{ title ?? 'Fjakkarin' }}
             </NuxtLink>
             <div class="-mr-2 flex items-center lg:hidden">
               <button type="button" @click="toggle" class="focus-ring-inset inline-flex items-center justify-center rounded-md bg-warm-gray-50 p-2 text-warm-gray-400 hover:bg-warm-gray-100 focus:outline-none focus:ring-2 focus:ring-black" aria-expanded="false">
@@ -17,18 +17,21 @@
             </div>
           </div>
           <div class="hidden space-x-10 lg:ml-10 lg:flex">
-            <NuxtLink v-for="page in $props.pages" :to="page.slug" :key="pages.id" class="text-base font-medium text-warm-gray-500 hover:text-warm-gray-900">
-              {{ page.title.rendered }}
+            <NuxtLink v-if="$props.menu.length > 0"
+                      :to="page.title"
+                      :key="page.id"
+                      v-for="page in $props.menu">
+              {{ page.title }}
             </NuxtLink>
           </div>
         </div>
         <div class="hidden lg:flex lg:items-center lg:space-x-6">
 
         </div>
+        <Menu :title="title" :menu="menu" :open="open" @toggle="toggle"></Menu>
       </nav>
     </div>
 
-    <Menu :title="title" :pages="pages" :open="open" @toggle="toggle"/>
   </header>
 </template>
 
@@ -36,14 +39,10 @@
 import Menu from "@/components/Menu";
 export default {
   name: "Header",
-
-  components: {
-    Menu
-  },
-
+  components: {Menu},
   props: [
       'title',
-      'pages'
+      'menu'
   ],
 
   data() {
@@ -54,6 +53,7 @@ export default {
 
   methods: {
     toggle () {
+      console.log('dasda');
       this.open = !this.open
     }
   }

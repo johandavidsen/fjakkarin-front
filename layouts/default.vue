@@ -1,10 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div>
     <Nuxt />
   </div>
 </template>
-
-
-<style scoped>
-
-</style>

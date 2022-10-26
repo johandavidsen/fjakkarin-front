@@ -24,10 +24,8 @@ export default {
     Header
   },
   props: ['error'],
-  layout: 'error'
+
+  layout: 'error',
+
 }
 </script>
-
-<style scoped>
-
-</style>

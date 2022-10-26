@@ -21,18 +21,25 @@
 import Header from '@/components/Header'
 
 export default {
-  name: "_slug",
+  name: "slug",
 
   components: {
     Header
   },
 
   async asyncData ({ app, store, params }) {
-    let slug = params.slug
+    let page = await app.$wp
+        .pages()
+        .slug(params.slug);
+
+    if (page.length === 0) {
+      return app.nuxt.error({ statusCode: 404, message: "err.message" });
+    }
+
     return {
       title: app.head.title,
       pages: await app.$wp.pages(),
-      page: await app.$wp.pages().slug(slug)
+      page: page
     }
   }
 }

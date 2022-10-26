@@ -16,6 +16,16 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ]
     },
+    hooks: {
+        render: {
+            errorMiddleware(app) {
+                app.use((error, _req, _res, next) => {
+                    console.log(error)
+                    next(error);
+                });
+            },
+        },
+    },
     wp: {
         sitemap: {
             hostname: "http://headless.dev.anu.gl.test"
@@ -23,7 +33,8 @@ export default {
     },
     modules: [
         [ 'wp-nuxt', {
-            endpoint: 'http://headless.dev.anu.gl.test/wp-json'
+            endpoint: 'http://headless.dev.anu.gl.test/wp-json',
+            extensions: true
         }],
         '@nuxtjs/tailwindcss'
     ]

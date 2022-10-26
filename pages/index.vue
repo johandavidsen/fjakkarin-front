@@ -1,26 +1,8 @@
 <template>
-  <div>
-    <Header :title="title" :pages="pages"></Header>
+  <div class="min-h-screen flex flex-col">
+    <Header :title="title" :menu="Object.values(mainMenu)"></Header>
 
-    <section class="container max-w-7xl px-4 py-12 mx-auto">
-      <div class="grid gap-4 mx-4 sm:grid-cols-12">
-        <div class="col-span-12 sm:col-span-3">
-          <div class="text-center sm:text-left mb-14">
-            <h3 class="text-3xl font-semibold">Thoughts and observations</h3>
-            <span class="text-sm font-bold tracking-wider uppercase dark:text-gray-400"></span>
-          </div>
-        </div>
-        <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
-          <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-200">
-            <NuxtLink :to='"/posts/" + post.slug' :key="post.id" v-for="post in posts">
-              <PostTeaser :key="post.id" :post="post"></PostTeaser>
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-warm-gray-900" aria-labelledby="footer-heading">
+    <footer class="flex-1" aria-labelledby="footer-heading">
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -67,81 +49,25 @@
             <div class="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
               <div class="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 class="text-base font-medium text-warm-gray-200">Solutions</h3>
-                  <ul role="list" class="mt-4 space-y-4">
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Marketing</a>
-                    </li>
 
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Analytics</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Commerce</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Insights</a>
-                    </li>
-                  </ul>
                 </div>
                 <div class="mt-12 md:mt-0">
-                  <h3 class="text-base font-medium text-warm-gray-200">Support</h3>
-                  <ul role="list" class="mt-4 space-y-4">
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Pricing</a>
-                    </li>
 
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Documentation</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Guides</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">API Status</a>
-                    </li>
-                  </ul>
                 </div>
               </div>
               <div class="md:grid md:grid-cols-2 md:gap-8">
                 <div>
-                  <h3 class="text-base font-medium text-warm-gray-200">Company</h3>
+                  <h3 class="text-base font-medium text-warm-gray-200">Links</h3>
                   <ul role="list" class="mt-4 space-y-4">
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">About</a>
-                    </li>
 
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Blog</a>
-                    </li>
 
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Jobs</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Press</a>
-                    </li>
-
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Partners</a>
-                    </li>
                   </ul>
                 </div>
                 <div class="mt-12 md:mt-0">
                   <h3 class="text-base font-medium text-warm-gray-200">Legal</h3>
                   <ul role="list" class="mt-4 space-y-4">
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Claim</a>
-                    </li>
 
-                    <li>
-                      <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Privacy</a>
-                    </li>
+
 
                     <li>
                       <a href="#" class="text-base text-warm-gray-400 hover:text-warm-gray-300">Terms</a>
@@ -152,7 +78,11 @@
             </div>
           </div>
           <div class="mt-12 border-t border-warm-gray-700 pt-8">
-            <p class="text-base text-warm-gray-400 xl:text-center">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+            <p class="text-base xl:text-center">
+              &copy; 2022
+              <span class="font-pacifico">Fjakkarin.</span>
+              All rights reserved.
+            </p>
           </div>
         </div>
     </footer>
@@ -172,10 +102,14 @@ export default {
   },
 
   async asyncData ({ app, store, params }) {
+
     return {
       title: app.head.title,
+      mainMenu: await app.$wp.menu().location('main-menu'),
+      footerMenuOne: await app.$wp.menu().location('footer-menu-one'),
+      footerMenuTwo: await app.$wp.menu().location('footer-menu-two'),
+      page: await app.$wp.frontPage(),
       posts: await app.$wp.posts().perPage(5).order( 'asc' ),
-      pages: await app.$wp.pages()
     }
   }
 
