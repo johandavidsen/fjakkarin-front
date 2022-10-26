@@ -15,3 +15,7 @@
 .font-pacifico {
     font-family: Pacifico,cursive;
 }
+
+.wp-block-query {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
